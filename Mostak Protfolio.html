@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>Md. Mostak Ahmed - An Ethical Hacker Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 5px;
+            padding: 5px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            background-color: #0cf552;
+        }
+
+        /* 3D Background Effect */
+        .bg-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #222;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '.';
+            color: #ff4d4d;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ff4d4d;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #ff4d4d;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            color: #222;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero p {
+            margin-bottom: 40px;
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #ff4d4d;
+            border-color: #ff4d4d;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 0;
+            }
+            
+            .hero-content {
+                margin-bottom: 50px;
+            }
+            
+            .nav-links {
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+        
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+            }
+        }
+        .profile-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+}
+
+.profile-border {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background-image: linear-gradient(#0a0a0a, #0a0a0a), 
+                    conic-gradient(#00ff73 0deg, #00ff73 120deg, transparent 120deg, transparent 240deg, #00ff73 240deg);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: rotateBorder 4s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image {
+  width: 92%;
+  height: 92%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0a0a0a;
+  background-color: #0a0a0a;
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- 3D Background Particles -->
+    <div class="bg-3d" id="bg-3d"></div>
+
+    <div class="container">
+        <nav>
+            <div class="logo">Portfolio</div>
+            <div class="nav-links">
+                <a href="Mostak Protfolio.html">Home</a>
+                <a href="About Me.html">About</a>
+                <a href="Protfolio.html">Portfolio</a>
+                <a href="Service.html">Service</a>
+                <a href="Contact.html">Contact</a>
+            </div>
+        </nav>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Md. Mostak Ahmed</h1>
+                <h2>I'm An Ethical Hacker Developer</h2>
+                    <p>
+                          I am a passionate and certified <span class="highlight">Ethical Hacker</span> with a deep commitment to securing the digital world. With expertise in penetration testing, vulnerability assessment, and network security, I help organizations identify and fix security flaws before they can be exploited by malicious attackers.
+                     </p>
+                     <p><em>Let’s make the internet a safer place, one vulnerability at a time.</em></p>
+                <a href="#" class="btn">Download CV</a>
+            </div>
+              <div class="profile-container">
+                <div class="profile-border">
+                 <img src="mostak.jpg" alt="Profile" height="300" width="250" class="profile-image">
+                </div>
+             </div>
+        </section>
+    </div>
+
+    <script>
+        // Create 3D particles
+        document.addEventListener('DOMContentLoaded', function() {
+            const bg3d = document.getElementById('bg-3d');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 5px and 20px
+                const size = Math.random() * 15 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s ${delay}s infinite linear`;
+                
+                bg3d.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
